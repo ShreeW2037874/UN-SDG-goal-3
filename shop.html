@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-card h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            position: relative;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            position: relative;
+            
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            display: none;
+        }
+
+        .cart.open {
+            display: block;
+        }
+
+        .cart h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart-items li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .arrow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .arrow-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .arrow-button.left {
+            left: 5px;
+        }
+
+        .arrow-button.right {
+            right: 5px;
+        }
+
+        .product-card:hover .arrow-button {
+            display: block;
+        }
+
+        .open-cart-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .open-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        .checkout-btn .open-cart-btn{
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            position: fixed;
+        }
+
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+        .checkout-form {
+            margin-top: 20px;
+        }
+        
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-form input[type="text"],
+        .checkout-form input[type="email"],
+        .checkout-form input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        .checkout-form input[type="checkbox"] {
+            width: auto;
+            margin-top: 10px;
+        }
+        
+        .checkout-form button.checkout-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            
+        }
+        
+        .checkout-form button.checkout-btn:hover {
+            background-color: #45a049;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Shop</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="profile.html">User profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Page Editor</a>
+                <div class="dropdown-content">
+                    <a href="pageEditor_ST1.html">pageEditor_ST1</a>
+                    <a href="pageEditor_ST2.html">pageEditor_ST2</a>
+                    <a href="pageEditor_ST3.html">pageEditor_ST3</a>
+                    <a href="pageEditor_ST4.html">pageEditor_ST4</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Content</a>
+                <div class="dropdown-content">
+                    <a href="content_ST1.html">content_ST1</a>
+                    <a href="content_ST2.html">content_ST2</a>
+                    <a href="content_ST3.html">content_ST3</a>
+                    <a href="content_ST4.html">content_ST4</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+
+        <div class="product-card" data-product="workoutMat">
+            <img class="product-img" src="https://ucarecdn.com/585432d4-b4c7-406d-bb42-9d8ba090bc9f/-/format/auto/-/preview/3000x3000/-/quality/lighter/Yoga%20Mat%207.jpg" alt="Workout Mat">
+            <button class="arrow-button left" onclick="showPrevImage(this)">◄</button>
+            <button class="arrow-button right" onclick="showNextImage(this)">►</button>
+            <h2 class="product-title">Workout Mat</h2>
+            <p class="product-price">$29.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-product="fitnessGuideBook">
+            <img class="product-img" src="https://m.media-amazon.com/images/I/61YjZtZdIuL._SY466_.jpg" alt="Fitness Guide Book">
+            <button class="arrow-button left" onclick="showPrevImage(this)">◄</button>
+            <button class="arrow-button right" onclick="showNextImage(this)">►</button>
+            <h2 class="product-title">Fitness Guide Book</h2>
+            <p class="product-price">$19.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-product="fitnessWatch">
+            <img class="product-img" src="https://m.media-amazon.com/images/I/81Ht+RGgW5L._AC_SY450_.jpg" alt="Home Garden">
+            <button class="arrow-button left" onclick="showPrevImage(this)">◄</button>
+            <button class="arrow-button right" onclick="showNextImage(this)">►</button>
+            <h2 class="product-title">Fitness Watch</h2>
+            <p class="product-price">$199.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-product="homeGarden">
+            <img class="product-img" src="https://uk.clickandgrow.com/cdn/shop/t/3/assets/product_sg3_white_side_1560w_01.jpg?v=119294636727401326361631876884" alt="Home Garden">
+            <button class="arrow-button left" onclick="showPrevImage(this)">◄</button>
+            <button class="arrow-button right" onclick="showNextImage(this)">►</button>
+            <h2 class="product-title">Smart Garden</h2>
+            <p class="product-price">$99.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+      
+
+    </div>
+    <div class="cart">
+        <h3>Shopping Cart</h3>
+        <ul class="cart-items">
+            
+        </ul>
+        <div class="total-price">
+            Total: $<span id="totalPrice">0.00</span>
+        </div>
+        <button class="close-cart-btn">X</button>
+
+        <div class="checkout-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+            <input type="checkbox" id="expressDelivery">
+            <label for="expressDelivery">Express Delivery</label><br>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+
+    </div>
+    <button class="open-cart-btn">View Cart</button>
+    <script>
+        const productImages = {
+            'workoutMat': [
+                "https://ucarecdn.com/585432d4-b4c7-406d-bb42-9d8ba090bc9f/-/format/auto/-/preview/3000x3000/-/quality/lighter/Yoga%20Mat%207.jpg",
+                "https://ucarecdn.com/5963f19d-c3e0-405f-b932-08b2589447c5/-/format/auto/-/preview/3000x3000/-/quality/lighter/Yoga%20Mat%208.jpg",
+                "https://ucarecdn.com/84a63cc1-ec53-4bba-be19-fa99276a0872/-/format/auto/-/preview/3000x3000/-/quality/lighter/Yoga%20Mat%204.jpg",
+                "https://ucarecdn.com/098d09e5-f871-4402-a575-4cb187cb9b4b/-/format/auto/-/preview/3000x3000/-/quality/lighter/Yoga%20Mat%203.jpg",
+            ],
+
+            'fitnessGuideBook': [
+                "https://m.media-amazon.com/images/I/61YjZtZdIuL._SY466_.jpg",
+                "https://m.media-amazon.com/images/I/51J-yPT-39L._AC_UF1000,1000_QL80_.jpg",
+                "https://i.ytimg.com/vi/NBReoub7FzY/maxresdefault.jpg",
+            ],
+            'fitnessWatch': [
+                "https://m.media-amazon.com/images/I/81Ht+RGgW5L._AC_SY450_.jpg",
+                "https://m.media-amazon.com/images/I/81CoTtpoa9L._AC_SY450_.jpg",
+                "https://m.media-amazon.com/images/I/81x28hDKiOL._AC_SY450_.jpg",
+            ],
+            'homeGarden': [
+                "https://uk.clickandgrow.com/cdn/shop/t/3/assets/product_sg3_white_side_1560w_01.jpg?v=119294636727401326361631876884",
+                "https://uk.clickandgrow.com/cdn/shop/t/3/assets/product_sg3_3_1560w.jpg?v=31533979294481889471631876830",
+                "https://uk.clickandgrow.com/cdn/shop/t/3/assets/product_sg3_10_1560w.jpg?v=50498747191914480031631876827",
+                "https://uk.clickandgrow.com/cdn/shop/t/3/assets/product_sg3_4_1560w.jpg?v=28253071698515256191631876832",
+            ]
+        };
+
+        function showPrevImage(button) {
+            const productCard = button.parentElement;
+            const productName = productCard.getAttribute('data-product');
+            const img = productCard.querySelector('.product-img');
+            const currentIndex = productImages[productName].indexOf(img.src);
+            const prevIndex = (currentIndex - 1 + productImages[productName].length) % productImages[productName].length;
+            img.src = productImages[productName][prevIndex];
+        }
+
+        function showNextImage(button) {
+            const productCard = button.parentElement;
+            const productName = productCard.getAttribute('data-product');
+            const img = productCard.querySelector('.product-img');
+            const currentIndex = productImages[productName].indexOf(img.src);
+            const nextIndex = (currentIndex + 1) % productImages[productName].length;
+            img.src = productImages[productName][nextIndex];
+        }
+
+       
+        function addToCart(productName, price) {
+            const cartItems = document.querySelector('.cart-items');
+            const totalPrice = document.getElementById('totalPrice');
+
+            
+            const cartItem = document.createElement('li');
+            cartItem.textContent = productName + ' - $' + price;
+            cartItems.appendChild(cartItem);
+
+            
+            const currentTotal = parseFloat(totalPrice.textContent);
+            totalPrice.textContent = (currentTotal + price).toFixed(2);
+        }
+
+        
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.parentElement;
+                const productName = productCard.querySelector('.product-title').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.product-price').textContent.replace('$', ''));
+                addToCart(productName, productPrice);
+            });
+        });
+
+        
+        const openCartBtn = document.querySelector('.open-cart-btn');
+        const cart = document.querySelector('.cart');
+        openCartBtn.addEventListener('click', () => {
+            cart.classList.add('open');
+        });
+
+       
+        const closeCartBtn = document.querySelector('.close-cart-btn');
+        closeCartBtn.addEventListener('click', () => {
+            cart.classList.remove('open');
+        });
+
+        function checkout() {
+            
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const expressDeliveryCheckbox = document.getElementById('expressDelivery');
+
+            const name = nameInput.value;
+            const email = emailInput.value;
+            const expressDelivery = expressDeliveryCheckbox.checked;
+
+            
+            if (name.trim() === '' || email.trim() === '') {
+                alert('Please enter your name and email address.');
+                return;
+            }
+
+            
+            const cartItems = document.querySelector('.cart-items');
+            cartItems.innerHTML = '';
+            const totalPrice = document.getElementById('totalPrice');
+            totalPrice.textContent = '0.00';
+            document.querySelector('.checkout-form').style.display = 'none'; 
+            alert("Thank you for your purchase, " + name + "! Your items will be shipped to " + email + ".");
+        }
+    </script>
+</body>
+
+</html>
